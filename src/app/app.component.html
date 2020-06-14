@@ -1,0 +1,27 @@
+<div *ngIf="oldUser === true">
+    <br><br>
+<textarea 
+name="textArea"
+[(ngModel)]="textArea"
+(ngModelChange)="this.textAreaUpdate.next($event)"
+>
+</textarea>
+<br><br>
+People who are viewing this currently:
+
+<li *ngFor="let item of viewerNames; let i = index">
+  {{viewerNames[i].name}}
+</li>
+
+<br>
+<br>
+<button (click)="change()">Refresh</button>
+<button (click)="saveText()">Save Doc</button>
+</div>
+<div *ngIf="oldUser === false">
+    <br><br><br>
+    Enter your name:
+<input name="name" [(ngModel)]="name">
+<br><br>
+<button (click)="save()">Proceed</button>
+</div>
